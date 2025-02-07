@@ -1,0 +1,24 @@
+{
+  "name": "haiyan2025",
+  "version": "1.0.0",
+  "description": "Second version of Haiyan's website",
+  "license": "ISC",
+  "author": "Haiyan Yang",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.0",
+    "nodemon": "^3.1.9",
+    "sanitize-html": "^2.14.0",
+    "validator": "^13.12.0"
+  }
+}
