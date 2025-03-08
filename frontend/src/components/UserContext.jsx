@@ -1,8 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
+import useStoredToken from "../services/useStoredToken";
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  const { removeToken } = useStoredToken("jwtToken");
+
   const [user, setUser] = useState(null);
   // Check if user info exists in localStorage when the app loads
   useEffect(() => {
@@ -22,6 +25,7 @@ export const UserProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user"); // Remove user from localStorage
+    removeToken("jwtToken");
   };
 
   return (

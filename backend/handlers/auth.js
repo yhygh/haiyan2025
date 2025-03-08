@@ -27,6 +27,11 @@ const signin = async function (req, res, next) {
       email: req.body.email,
     });
 
+    console.log(`process.env.ADMIN = ${process.env.ADMIN}`);
+    console.log(`signin user = ${JSON.stringify(user)}`);
+    console.log(`signin req.body = `);
+    console.log(req.body);
+
     let { id, username } = user;
 
     let isMatch = await user.comparePassword(req.body.password);
@@ -71,10 +76,11 @@ const sanitizeInput = function (userInput) {
 };
 
 const signup = async function (req, res, next) {
+  console.log(`did I get here?`);
   try {
     sanitizeHtml(req.body.email);
     if (!validator.isEmail(req.body.email)) {
-      throw new Error("Invalid Email Address");
+      throw new Error("Invalid Email Address!");
     }
 
     sanitizeHtml(req.body.username);
@@ -86,8 +92,12 @@ const signup = async function (req, res, next) {
     sanitizeHtml(pass);
 
     if (pass.length < 6 || pass.length > 16) {
-      throw new Error("password must between 6 to 12 characters");
+      throw new Error("password must between 6 to 16 characters");
     }
+
+    console.log(`req.body = `);
+    console.log(req.body);
+
     // create a user
     let user = await User.create(req.body);
 
@@ -105,7 +115,7 @@ const signup = async function (req, res, next) {
       token,
     });
   } catch (err) {
-    // see what kind of error
+    // see what kind of error it is
     // if it is a certain error
     // respond with user/name already taken
     // otherwise just send back a generic 400

@@ -7,11 +7,7 @@ export const readLocalStorage = (key, defaultValue) => {
     return defaultValue;
   }
 
-  if (maybeValue !== null) {
-    return JSON.parse(maybeValue);
-  }
-
-  return defaultValue;
+  return maybeValue || defaultValue;
 };
 
 export const writeLocalStorage = (key, newState) => {

@@ -20,7 +20,7 @@ const useStoredToken = (key) => {
     setTokenState(null);
   };
 
-  return [tokenState, setToken, removeToken];
+  return { tokenState, setToken, removeToken };
 };
 
 export default useStoredToken;

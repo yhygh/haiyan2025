@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../images/shira-logo.png";
 import { Fragment, useState } from "react";
 import Hamburger from "./mobile/Hamburger";
@@ -9,6 +9,7 @@ import { useUser } from "../../components/UserContext";
 const Nav = () => {
   const [backdropOpen, setBackdropOpen] = useState(false);
   const { user, logout } = useUser();
+  const location = useLocation();
 
   const onLogout = (e) => {
     e.preventDefault();
@@ -84,7 +85,9 @@ const Nav = () => {
               <Link to="/signup">Sign up</Link>
             </li>
             <li>
-              <Link to="/signin">Log in</Link>
+              <Link to="/signin" state={{ from: location.pathname }}>
+                Log in
+              </Link>
             </li>
           </ul>
         )}
