@@ -32,7 +32,7 @@ const SideMenu = ({ handleClick }) => {
           </Link>
         </li>
         <li>
-          <Link to="/techinfo" className="nav-link">
+          <Link to="/techwarehouse" className="nav-link">
             Tech Warehouse
           </Link>
         </li>
@@ -46,7 +46,7 @@ const SideMenu = ({ handleClick }) => {
       {user ? (
         <div className="logout">
           <div>
-            <strong>Hello, {user} </strong>
+            <strong>Hello, {user.username} </strong>
           </div>
           <div>
             <button onClick={onLogout} className="btn btn-info btn-sm">

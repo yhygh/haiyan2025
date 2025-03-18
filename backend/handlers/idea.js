@@ -13,7 +13,6 @@ const getIdea = async function (req, res, next) {
 const getIdeas = async function (req, res, next) {
   try {
     let ideas = await Idea.find();
-    console.log(`backend, getIdeas, ideas = ${JSON.stringify(ideas)}`);
     return res.status(200).json(ideas);
   } catch (err) {
     return next(err);
@@ -32,10 +31,11 @@ const createIdea = async function (req, res, next) {
 
 // /api/ideas/:ideaId
 const deleteIdea = async function (req, res, next) {
-  console.log(`\n backend, deleteIdea req.params = `);
-  console.log(req.params);
+  console.log(
+    `\n backend, deleteIdea req.params = ${JSON.stringify(req.params)}`
+  );
+  // console.log(req.params);
   try {
-    // let foundIdea = await Idea.findByIdAndRemove({ _id: req.params.ideaId });
     let foundIdea = await Idea.findByIdAndDelete(req.params.ideaId);
     return res.status(200).json(foundIdea);
   } catch (err) {

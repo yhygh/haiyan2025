@@ -11,6 +11,9 @@ const Nav = () => {
   const { user, logout } = useUser();
   const location = useLocation();
 
+  console.log(`user =`);
+  console.log(user);
+
   const onLogout = (e) => {
     e.preventDefault();
     logout();
@@ -57,7 +60,7 @@ const Nav = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/techinfo" className="nav-link">
+            <Link to="/techwarehouse" className="nav-link">
               Tech Warehouse
             </Link>
           </li>
@@ -71,7 +74,7 @@ const Nav = () => {
         {user ? (
           <div className="logout">
             <div>
-              <strong>Hello, {user} </strong>
+              <strong>Hello, {user.username} </strong>
             </div>
             <div>
               <button onClick={onLogout} className="btn btn-info btn-sm">

@@ -90,22 +90,25 @@ const AuthForm = ({ signIn }) => {
       const apiCallUrl = `/api/auth/${authType}`;
       console.log(`apiCallUrl = ${apiCallUrl}`);
       console.log(`username = ${inputUsername} ??`);
-      const data = await apiCall("post", apiCallUrl, {
+      const userObj = await apiCall("post", apiCallUrl, {
         email,
         password,
         username: inputUsername,
       });
 
-      console.log(`data = `);
-      console.log(data);
-
-      const { username, token } = data;
-      setToken(token);
-      updateUser(username);
+      setToken(userObj.token);
+      updateUser(userObj);
       setEmail("");
       setPassword("");
       const redirectPath = location.state?.from || "/";
+      // const redirectPath = "/";
+
+      console.log(`user = `);
+      console.log(userObj);
+      // console.log(`redirectPath = ${redirectPath}`);
+
       navigate(redirectPath, { replace: true });
+      // navigate(-1);
     } catch (err) {
       setError(err.message);
     }

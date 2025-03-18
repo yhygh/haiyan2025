@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import React from "react";
 import IdeaForm from "./IdeaForm";
 import useIdea from "../services/useIdea";
 

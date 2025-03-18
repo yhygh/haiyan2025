@@ -29,8 +29,8 @@ const signin = async function (req, res, next) {
 
     console.log(`process.env.ADMIN = ${process.env.ADMIN}`);
     console.log(`signin user = ${JSON.stringify(user)}`);
-    console.log(`signin req.body = `);
-    console.log(req.body);
+    console.log(`req.body = ${JSON.stringify(req.body)}`);
+    // console.log(req.body);
 
     let { id, username } = user;
 
@@ -95,8 +95,8 @@ const signup = async function (req, res, next) {
       throw new Error("password must between 6 to 16 characters");
     }
 
-    console.log(`req.body = `);
-    console.log(req.body);
+    console.log(`req.body = ${JSON.stringify(req.body)}`);
+    // console.log(req.body);
 
     // create a user
     let user = await User.create(req.body);

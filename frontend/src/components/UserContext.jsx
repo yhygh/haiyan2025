@@ -17,14 +17,14 @@ export const UserProvider = ({ children }) => {
 
   // update the user (e.g., after login)
   const updateUser = (newUser) => {
-    setUser(newUser);
-    localStorage.setItem("user", JSON.stringify(newUser));
+    setUser({ ...newUser });
+    localStorage.setItem("username", newUser.username);
   };
 
   // Function to clear the user (e.g., after logout)
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user"); // Remove user from localStorage
+    localStorage.removeItem("username"); // Remove user from localStorage
     removeToken("jwtToken");
   };
 

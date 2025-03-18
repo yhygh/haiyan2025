@@ -8,6 +8,8 @@ import cors from "cors";
 import helmet from "helmet";
 import authRouter from "./routes/auth.js";
 import ideaRouter from "./routes/idea.js";
+import techsectionRouter from "./routes/techsection.js";
+import gurulinkRouter from "./routes/gurulink.js";
 import errorHandler from "./handlers/error.js";
 
 dotenv.config();
@@ -38,6 +40,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/ideas", ideaRouter);
+app.use("/api/ts", techsectionRouter);
+app.use("/api/gl", gurulinkRouter);
 
 app.use(errorHandler);
 
