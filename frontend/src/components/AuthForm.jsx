@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import isEmail from "validator/lib/isEmail";
-import { apiCall } from "../services/api";
+import { apiCall, setTokenHeader } from "../services/api";
 import { useUser } from "./UserContext";
 import useStoredToken from "../services/useStoredToken";
 
@@ -97,6 +97,7 @@ const AuthForm = ({ signIn }) => {
       });
 
       setToken(userObj.token);
+      // setTokenHeader(userObj.token); // for axios api
       updateUser(userObj);
       setEmail("");
       setPassword("");

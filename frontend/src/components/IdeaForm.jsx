@@ -1,19 +1,28 @@
 import { useState } from "react";
+import useIdea from "../services/useIdea";
 
-const IdeaForm = ({ handleAddIdea }) => {
+const IdeaForm = () => {
   const [idea, setIdea] = useState("");
+  const { addIdea } = useIdea();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addIdea({ idea: idea, completed: false });
+  };
 
   return (
-    <>
-      <form onSubmit={() => handleAddIdea({ idea: idea, completed: false })}>
-        <input
-          type="text"
+    <div className="ideacontainer">
+      <form onSubmit={handleSubmit}>
+        <textarea
+          minLength={10}
+          maxLength={100}
+          placeholder="Add your idea here ..."
           name="idea"
           onChange={(e) => setIdea(e.target.value)}
         />
         <button>Add an idea</button>
       </form>
-    </>
+    </div>
   );
 };
 

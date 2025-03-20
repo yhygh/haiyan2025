@@ -18,7 +18,13 @@ const setTokenHeader = (token) => {
  */
 const apiCall = (method, path, data) => {
   console.log(`inside apiCall, path=${path} data =`);
+  // console.log(data);
+
+  console.log(`axios.defaults.headers.common=`);
+  console.log(axios.defaults.headers.common);
+  console.log(`data =`);
   console.log(data);
+  console.log(`=====\n`);
 
   // debugger;
   return new Promise((resolve, reject) => {

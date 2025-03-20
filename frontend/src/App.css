@@ -90,6 +90,22 @@ ul.nav.navbar-page li {
   text-align: justify;
 }
 
+.ideacontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.ideacontainer textarea {
+  width: 400px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid #c3c6c5;
+  font-size: 16px;
+  border-radius: 5px;
+  resize: none;
+}
+
 .haiyan-bg {
   width: 100vw;
   height: 100vh;

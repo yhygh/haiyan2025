@@ -26,9 +26,10 @@ const useIdea = () => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   const addIdea = async (newIdea) => {
+    console.log(`newIdea = ${JSON.stringify(newIdea)}`);
     try {
       const postedData = await apiCall("post", url, newIdea);
       setData((prevData) => [...prevData, postedData]);

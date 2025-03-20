@@ -4,6 +4,8 @@ import sanitizeHtml from "sanitize-html";
 import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
 
+// This is not okay in production. But I'm using it
+// for personal usage, one less thing to remember
 const SECRET_KEY = process.env.ADMIN;
 
 const generateToken = (user) => {
@@ -95,7 +97,7 @@ const signup = async function (req, res, next) {
       throw new Error("password must between 6 to 16 characters");
     }
 
-    console.log(`req.body = ${JSON.stringify(req.body)}`);
+    // console.log(`req.body = ${JSON.stringify(req.body)}`);
     // console.log(req.body);
 
     // create a user
@@ -132,4 +134,4 @@ const signup = async function (req, res, next) {
   }
 };
 
-export { signin, signup };
+export { SECRET_KEY, signin, signup };

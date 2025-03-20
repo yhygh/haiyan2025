@@ -1,11 +1,12 @@
 import jwt from "jsonwebtoken";
+import { SECRET_KEY } from "../handlers/auth.js";
 
 // make sure the user is logged in
 const loginRequired = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    jwt.verify(token, process.env.SECRET_KEY, function (err, decoded) {
-      if (decoded) {
+    jwt.verify(token, SECRET_KEY, function (err, decoded) {
+      if (!err) {
         // decoded: { id: '5f7b152da2f786acfc05ba73', username: 'somename', iat: 1602477923 }
         return next();
       } else {

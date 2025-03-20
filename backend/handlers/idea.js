@@ -20,7 +20,9 @@ const getIdeas = async function (req, res, next) {
 };
 
 const createIdea = async function (req, res, next) {
+  console.log(`\n ----------------req.body = `);
   console.log(req.body);
+  console.log(`--------------------\n`);
   try {
     let newIdea = await Idea.create(req.body);
     return res.status(201).json(newIdea);

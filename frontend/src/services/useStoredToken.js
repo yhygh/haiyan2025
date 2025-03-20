@@ -4,6 +4,7 @@ import {
   readLocalStorage,
   writeLocalStorage,
 } from "./localStorage";
+import { setTokenHeader } from "./api";
 
 // since I (the admin) am the only one using this feature, it's
 // relatively safe to use localStorage

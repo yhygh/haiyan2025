@@ -4,10 +4,10 @@ import { Techsection } from "../models/index.js";
 // To test using httpie
 //     http GET localhost:3000/api/ts "Authorization:Bearer token"
 const getTechsections = async function (req, res, next) {
-  console.log(`reaching backend ... getTechSections ...`);
+  // console.log(`reaching backend ... getTechSections ...`);
   try {
     let techSections = await Techsection.find().populate("links").exec();
-    console.log("Populated techSections:", techSections);
+    // console.log("Populated techSections:", techSections);
     return res.status(200).json(techSections);
   } catch (err) {
     console.error(`what happend ? ...`);

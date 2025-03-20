@@ -11,9 +11,6 @@ const Nav = () => {
   const { user, logout } = useUser();
   const location = useLocation();
 
-  console.log(`user =`);
-  console.log(user);
-
   const onLogout = (e) => {
     e.preventDefault();
     logout();

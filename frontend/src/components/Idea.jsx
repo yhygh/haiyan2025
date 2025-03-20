@@ -7,9 +7,9 @@ const Idea = () => {
 
   return (
     <>
-      <h2>Spontaneous Ideas</h2>
-      <IdeaForm handleAddIdea={addIdea} />
       <div className="intro">
+        <h2>Spontaneous Ideas</h2>
+        <IdeaForm />
         {ideas.map((idea) => (
           <li key={idea._id}>
             {idea.idea} <button onClick={() => deleteIdea(idea._id)}>X</button>
