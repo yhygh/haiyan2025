@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../handlers/auth.js";
 
-// make sure the user is logged in
 const loginRequired = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];

@@ -20,9 +20,6 @@ const getIdeas = async function (req, res, next) {
 };
 
 const createIdea = async function (req, res, next) {
-  console.log(`\n ----------------req.body = `);
-  console.log(req.body);
-  console.log(`--------------------\n`);
   try {
     let newIdea = await Idea.create(req.body);
     return res.status(201).json(newIdea);
@@ -33,9 +30,6 @@ const createIdea = async function (req, res, next) {
 
 // /api/ideas/:ideaId
 const deleteIdea = async function (req, res, next) {
-  console.log(
-    `\n backend, deleteIdea req.params = ${JSON.stringify(req.params)}`
-  );
   // console.log(req.params);
   try {
     let foundIdea = await Idea.findByIdAndDelete(req.params.ideaId);

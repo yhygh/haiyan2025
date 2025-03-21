@@ -1,20 +1,33 @@
 import IdeaForm from "./IdeaForm";
 import useIdea from "../services/useIdea";
+import { useUser } from "./UserContext";
 
 const Idea = () => {
+  const { user } = useUser();
   const { data: ideas, loading, error, addIdea, deleteIdea } = useIdea();
-  console.log(`ideas = ${JSON.stringify(ideas)}`);
+
+  if (loading) {
+    return <div>Loading ... </div>;
+  }
 
   return (
     <>
       <div className="intro">
         <h2>Spontaneous Ideas</h2>
-        <IdeaForm />
-        {ideas.map((idea) => (
-          <li key={idea._id}>
-            {idea.idea} <button onClick={() => deleteIdea(idea._id)}>X</button>
-          </li>
-        ))}
+        <div className="idea-error">{error && <b>{error}</b>}</div>
+        <IdeaForm addIdea={addIdea} />
+        <div className="idealist-container">
+          <ul className="idealist">
+            {ideas.map((idea) => (
+              <li key={idea._id}>
+                {idea.idea}{" "}
+                {user && (
+                  <button onClick={() => deleteIdea(idea._id)}>X</button>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

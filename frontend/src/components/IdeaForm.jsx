@@ -1,14 +1,14 @@
 import { useState } from "react";
-import useIdea from "../services/useIdea";
 
-const IdeaForm = () => {
+const IdeaForm = ({ addIdea }) => {
   const [idea, setIdea] = useState("");
-  const { addIdea } = useIdea();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addIdea({ idea: idea, completed: false });
   };
+
+  // TODO: add front end idea input validation code
 
   return (
     <div className="ideacontainer">
@@ -20,7 +20,7 @@ const IdeaForm = () => {
           name="idea"
           onChange={(e) => setIdea(e.target.value)}
         />
-        <button>Add an idea</button>
+        <button disabled={idea === ""}>Add an idea</button>
       </form>
     </div>
   );

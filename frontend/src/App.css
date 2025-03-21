@@ -13,6 +13,12 @@ p {
   margin-bottom: 1rem;
 }
 
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
 .error {
   color: orangered;
 }
@@ -91,19 +97,65 @@ ul.nav.navbar-page li {
 }
 
 .ideacontainer {
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
+}
+
+.ideacontainer form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
 }
 
 .ideacontainer textarea {
-  width: 400px;
+  width: 380px;
   height: 100px;
   padding: 10px;
   border: 2px solid #c3c6c5;
   font-size: 16px;
   border-radius: 5px;
   resize: none;
+}
+
+.ideacontainer form button {
+  margin: auto;
+  width: 50%;
+  margin-top: 1rem;
+  color: #111010;
+  font-size: medium;
+  background-color: #c7a598b0;
+  border-color: #6398bb;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ideacontainer form button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.idea-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.idealist-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.idealist {
+  list-style: none;
+  padding: 1rem;
+  text-align: left;
 }
 
 .haiyan-bg {

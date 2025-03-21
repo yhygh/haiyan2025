@@ -5,7 +5,7 @@ import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
 
 // This is not okay in production. But I'm using it
-// for personal usage, one less thing to remember
+// for personal purpose, one less thing to remember
 const SECRET_KEY = process.env.ADMIN;
 
 const generateToken = (user) => {
