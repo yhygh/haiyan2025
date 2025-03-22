@@ -15,9 +15,11 @@ const TechSection = ({
   return (
     <div className="main-grid-item">
       <div className="category-grid-item category-grid-item-title">
-        {tsObj.name}
+        {tsObj.name}{" "}
+        {user && user.isAdmin && (
+          <button onClick={() => deleteTechsection(tsObj._id)}> X </button>
+        )}
       </div>
-
       {user && user.isAdmin ? (
         <div>
           <button>Add a new Link</button>
@@ -46,10 +48,6 @@ const TechSection = ({
               Create Guru Link
             </button>
           </form>
-          <button onClick={() => deleteTechsection(tsObj._id)}>
-            {" "}
-            Delete Tech Section{" "}
-          </button>
         </div>
       ) : null}
 
@@ -59,18 +57,15 @@ const TechSection = ({
             <a href={link.url} target="_blank" rel="noreferrer noopener">
               {link.title}
             </a>
-          </div>
-          <div>{link.comment}</div>
-
-          {user && user.isAdmin ? (
-            <div>
+            {user && user.isAdmin ? (
               <span>
                 <button onClick={() => deleteGurulink(tsObj._id, link._id)}>
                   X
                 </button>
               </span>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
+          <div>{link.comment}</div>
         </div>
       ))}
     </div>

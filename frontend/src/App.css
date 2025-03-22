@@ -1,6 +1,9 @@
 .container {
-  margin-bottom: 70px;
   max-width: 1200px;
+  width: 95%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 70px;
 }
 
 a {
@@ -11,6 +14,14 @@ a {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
 }
 
 .alert-danger {
@@ -89,11 +100,17 @@ ul.nav.navbar-page li {
 
 .intro {
   margin: 10px auto;
+  width: 95%;
   max-width: 750px;
 }
 
 .intro p {
   text-align: justify;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
 }
 
 .ideacontainer {
@@ -154,31 +171,7 @@ ul.nav.navbar-page li {
 
 .idealist {
   list-style: none;
-  padding: 1rem;
-  text-align: left;
-}
-
-.haiyan-bg {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: top;
-  z-index: -1;
-  background-image: url("./images/HaiyanYang.jpg");
-  padding: 1rem;
-  background-position: center center;
-  background-size: cover;
-  text-shadow: 0 0 8px #66757f;
-}
-
-.haiyan-bg .btn {
-  color: white;
-  border-color: #3e7e96;
-  background-color: #3e7e96;
+  padding: 0 1rem 1rem 1rem;
 }
 
 /* For layout of Suggestions */
@@ -263,7 +256,7 @@ textarea.form-control {
 
 .category-grid-item-title {
   font-weight: 700;
-  width: 30%;
+  width: 80%;
 }
 
 .category-grid-item {

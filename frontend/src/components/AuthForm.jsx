@@ -116,64 +116,68 @@ const AuthForm = ({ signIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={onChange}
-          required
-        />
-      </div>
-      {!signIn && email.length > 0 && (
-        <div className="alert alert-danger">{inputErrors.email}</div>
-      )}
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={onChange}
-          required
-        />
-      </div>
-      {!signIn && password.length > 0 && (
-        <div className="alert alert-danger">{inputErrors.password}</div>
-      )}
-      {!signIn && (
-        <>
+    <div className="intro">
+      <div className="login-container">
+        <form onSubmit={handleSubmit}>
+          {error && <div className="error">{error}</div>}
           <div>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={onChange}
+              required
+            />
+          </div>
+          {!signIn && email.length > 0 && (
+            <div className="alert alert-danger">{inputErrors.email}</div>
+          )}
+          <div>
+            <label htmlFor="password">Password:</label>
             <input
               type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              id="password"
+              name="password"
+              value={password}
+              onChange={onChange}
               required
             />
           </div>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username"
-              name="username"
-              value={inputUsername}
-              onChange={(e) => setInputUsername(e.target.value)}
-              type="text"
-              required
-            />
-          </div>
-        </>
-      )}
-      <button type="submit">{signIn ? "Login" : "Sign Up"}</button>
-    </form>
+          {!signIn && password.length > 0 && (
+            <div className="alert alert-danger">{inputErrors.password}</div>
+          )}
+          {!signIn && (
+            <>
+              <div>
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="username">Username:</label>
+                <input
+                  id="username"
+                  name="username"
+                  value={inputUsername}
+                  onChange={(e) => setInputUsername(e.target.value)}
+                  type="text"
+                  required
+                />
+              </div>
+            </>
+          )}
+          <button type="submit">{signIn ? "Login" : "Sign Up"}</button>
+        </form>
+      </div>
+    </div>
   );
 };
 
