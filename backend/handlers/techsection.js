@@ -24,7 +24,8 @@ const getTechsections = async function (req, res, next) {
 //    http POST localhost:3000/api/ts
 //    "Authorization:Bearer token" name="something"
 const createTechsection = async function (req, res, next) {
-  // console.log(req.body);
+  console.log(`create tech section ...`);
+  console.log(req.body);
   try {
     let newTechsection = await Techsection.create(req.body);
     return res.status(201).json(newTechsection);

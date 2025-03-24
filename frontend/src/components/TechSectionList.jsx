@@ -2,10 +2,10 @@ import { useState } from "react";
 import useTechSection from "../services/useTechSection";
 import { useUser } from "./UserContext";
 import TechSection from "./tech/TechSection";
+import TechSectionForm from "./tech/TechSectionForm";
 
 const TechSectionList = () => {
   const { user } = useUser();
-  const [techSection, setTechSection] = useState("");
   const [showTechForm, setShowTechForm] = useState(false);
   const {
     tsdata: techSections,
@@ -16,9 +16,9 @@ const TechSectionList = () => {
     addGurulink,
     deleteGurulink,
   } = useTechSection();
-  console.log(
-    `in TechSectionList ==== techSections = ${JSON.stringify(techSections)}`
-  );
+  // console.log(
+  //   `in TechSectionList ==== techSections = ${JSON.stringify(techSections)}`
+  // );
 
   return (
     <>
@@ -30,16 +30,10 @@ const TechSectionList = () => {
           </button>
           {showTechForm && (
             <div>
-              <form>
-                <input
-                  type="text"
-                  value={techSection}
-                  onChange={(e) => setTechSection(e.target.value)}
-                />
-                <button onSubmit={() => addTechSection({ name: techSection })}>
-                  Create New Tech Section
-                </button>
-              </form>
+              <TechSectionForm
+                addTechSection={addTechSection}
+                hideTechForm={() => setShowTechForm(false)}
+              />
               <button onClick={() => setShowTechForm(false)}>Cancel</button>
             </div>
           )}

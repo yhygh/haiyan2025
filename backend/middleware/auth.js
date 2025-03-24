@@ -28,7 +28,7 @@ const loginRequired = (req, res, next) => {
 const ensureCorrectUser = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    jwt.verify(token, process.env.SECRET_KEY, function (err, decoded) {
+    jwt.verify(token, SECRET_KEY, function (err, decoded) {
       if (decoded && decoded.id === req.params.user_id) {
         return next();
       } else {
@@ -50,7 +50,7 @@ const ensureCorrectUser = (req, res, next) => {
 const ensureAdmin = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    jwt.verify(token, process.env.SECRET_KEY, function (err, decoded) {
+    jwt.verify(token, SECRET_KEY, function (err, decoded) {
       if (decoded && decoded.username === process.env.ADMIN) {
         return next();
       } else {

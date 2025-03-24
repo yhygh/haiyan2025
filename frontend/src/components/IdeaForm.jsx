@@ -20,7 +20,9 @@ const IdeaForm = ({ addIdea }) => {
           name="idea"
           onChange={(e) => setIdea(e.target.value)}
         />
-        <button disabled={idea === ""}>Add an idea</button>
+        <button type="submit" disabled={idea === ""}>
+          Add an idea
+        </button>
       </form>
     </div>
   );

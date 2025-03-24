@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { apiCall } from "./api";
 
 const useTechSection = () => {
@@ -10,6 +10,8 @@ const useTechSection = () => {
   // instead of adding the proxy attribute to package.json
   const tsUrl = "/api/ts";
   const glUrl = "/api/gl";
+
+  console.log(`====run useTechSection ===================\n`);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +31,8 @@ const useTechSection = () => {
 
   const addTechSection = async (newTechSection) => {
     try {
+      console.log(`newTechSection = `);
+      console.log(newTechSection);
       const postedData = await apiCall("post", tsUrl, newTechSection);
       setTsData((prevData) => [...prevData, postedData]);
     } catch (error) {
@@ -80,6 +84,8 @@ const useTechSection = () => {
       setError(error.message);
     }
   };
+
+  // const handleAddTechSection = useCallback(() => addTechSection(), []);
 
   return {
     tsdata,
