@@ -13,7 +13,7 @@ const TechSectionForm = ({ addTechSection, hideTechForm }) => {
   // TODO: add input validation code
 
   return (
-    <div>
+    <div className="techform">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -21,7 +21,7 @@ const TechSectionForm = ({ addTechSection, hideTechForm }) => {
           onChange={(e) => setTechSection(e.target.value)}
         />
         <button type="submit" disabled={techSection === ""}>
-          Create New Tech Section
+          Add Tech Section
         </button>
       </form>
     </div>

@@ -26,7 +26,7 @@ const Dsa = () => {
           Leetcode is a great platform to hone the skills of an engineer. Yet it
           is quite a journey to reach the stage of identifying a pattern and
           solving a problem correctly within minutes. I would like to share a
-          few points here.
+          few points with examples here.
         </p>
         <h4>Tips for learning to solve Leetcode problems</h4>
         <ul>
@@ -35,7 +35,7 @@ const Dsa = () => {
           ))}
         </ul>
 
-        <h4>More to come</h4>
+        <h4>Details with examples coming soon ...</h4>
       </div>
     </div>
   );

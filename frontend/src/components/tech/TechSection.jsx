@@ -17,6 +17,9 @@ const TechSection = ({
     e.preventDefault();
     addGurulink(tsObj._id, { title, url, comment });
     setShowGuruLinkForm(false);
+    setTitle("");
+    setUrl("");
+    setComment("");
   };
 
   const shouldDisable = title === "" || url === "";
@@ -30,7 +33,7 @@ const TechSection = ({
         )}
       </div>
       {user && user.isAdmin ? (
-        <div>
+        <div className="gurulinkform">
           {!showGuruLinkForm && (
             <button onClick={() => setShowGuruLinkForm(true)}>
               Add a new Link
@@ -38,28 +41,47 @@ const TechSection = ({
           )}
           {showGuruLinkForm && (
             <form onSubmit={handleSubmit}>
-              <input
-                name="title"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-              <input
-                name="url"
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-              />
-              <input
-                name="comment"
-                type="text"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
-              <button type="submit" disabled={shouldDisable}>
-                Create Guru Link
-              </button>
-              <button onClick={() => setShowGuruLinkForm(false)}>Cancel</button>
+              <div>
+                <label htmlFor="title">Title: </label>
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="url">URL: </label>
+                <input
+                  id="url"
+                  name="url"
+                  type="text"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="comment">Comment: </label>
+                <input
+                  id="comment"
+                  name="comment"
+                  type="text"
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </div>
+              <div className="actionline">
+                <button type="submit" disabled={shouldDisable}>
+                  Create Guru Link
+                </button>
+                <button
+                  className="space"
+                  onClick={() => setShowGuruLinkForm(false)}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           )}
         </div>

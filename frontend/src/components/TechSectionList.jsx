@@ -16,28 +16,29 @@ const TechSectionList = () => {
     addGurulink,
     deleteGurulink,
   } = useTechSection();
-  // console.log(
-  //   `in TechSectionList ==== techSections = ${JSON.stringify(techSections)}`
-  // );
 
   return (
     <>
       <h2>Tech Sections</h2>
       {user && user.isAdmin && (
-        <>
-          <button onClick={() => setShowTechForm(true)}>
-            Add a Tech Section
-          </button>
+        <div className="add-tech-section">
+          {!showTechForm && (
+            <button onClick={() => setShowTechForm(true)}>
+              Add a Tech Section
+            </button>
+          )}
           {showTechForm && (
-            <div>
+            <div className="techform-action">
               <TechSectionForm
                 addTechSection={addTechSection}
                 hideTechForm={() => setShowTechForm(false)}
               />
-              <button onClick={() => setShowTechForm(false)}>Cancel</button>
+              <div>
+                <button onClick={() => setShowTechForm(false)}>Cancel</button>
+              </div>
             </div>
           )}
-        </>
+        </div>
       )}
       <div className="main-grid">
         {techSections.map((ts) => (
