@@ -8,9 +8,18 @@ const TechSection = ({
   deleteGurulink,
 }) => {
   const { user } = useUser();
+  const [showGuruLinkForm, setShowGuruLinkForm] = useState(false);
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [comment, setComment] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addGurulink(tsObj._id, { title, url, comment });
+    setShowGuruLinkForm(false);
+  };
+
+  const shouldDisable = title === "" || url === "";
 
   return (
     <div className="main-grid-item">
@@ -22,32 +31,37 @@ const TechSection = ({
       </div>
       {user && user.isAdmin ? (
         <div>
-          <button>Add a new Link</button>
-          <form>
-            <input
-              name="title"
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <input
-              name="url"
-              type="text"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-            />
-            <input
-              name="comment"
-              type="text"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            />
-            <button
-              onClick={() => addGurulink(tsObj._id, { title, url, comment })}
-            >
-              Create Guru Link
+          {!showGuruLinkForm && (
+            <button onClick={() => setShowGuruLinkForm(true)}>
+              Add a new Link
             </button>
-          </form>
+          )}
+          {showGuruLinkForm && (
+            <form onSubmit={handleSubmit}>
+              <input
+                name="title"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <input
+                name="url"
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+              />
+              <input
+                name="comment"
+                type="text"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button type="submit" disabled={shouldDisable}>
+                Create Guru Link
+              </button>
+              <button onClick={() => setShowGuruLinkForm(false)}>Cancel</button>
+            </form>
+          )}
         </div>
       ) : null}
 
