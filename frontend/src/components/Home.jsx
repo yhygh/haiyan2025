@@ -26,11 +26,12 @@ const Home = () => {
       <div className="intro">
         <h4>Introduction</h4>
         <p>
-          This is a responsive <strong>full stack website</strong>. You can view
-          it on a mobile phone as well. From creating a favicon image, designing
-          the look and feel, architecing the backend and frontend, writing every
-          line of code, to generating a SSL certificate and deploying to a
-          digital ocean droplet, I did everything from scratch. Here is the{" "}
+          This is a <strong>responsive full stack website</strong>. You can view
+          it on a <strong>mobile phone</strong> as well. From creating a favicon
+          image, designing the look and feel, architecing the backend and
+          frontend, writing every line of code, to generating a SSL certificate
+          and deploying to a digital ocean droplet, I did everything from
+          scratch. Here is the{" "}
           <a href="https://github.com/yhygh/haiyan2025">
             <b>source code</b>
           </a>
