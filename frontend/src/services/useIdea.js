@@ -16,7 +16,7 @@ const useIdea = () => {
       apiCall("get", url)
         .then((data) => setData(data))
         .catch((error) => {
-          setError("fetching data error: " + error);
+          setError("fetching data error: " + error.message);
         })
         .finally(() => {
           setLoading(false);

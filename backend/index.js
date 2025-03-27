@@ -15,10 +15,21 @@ import errorHandler from "./handlers/error.js";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ORIGIN = "http://localhost:4173";
+const ORIGIN = "http://localhost:5173";
 const app = express();
 
-// // TODP: figure out why the following does not work
+app.use((req, res, next) => {
+  console.log("--- Incoming Request ---");
+  console.log(`Method: ${req.method}`);
+  console.log(`URL: ${req.url}`);
+  console.log("Headers:", req.headers);
+  // console.log('Body:', req.body);
+  next();
+});
+
+// // TODP: figure out why the following does not work in vite preview mode
+//  // > curl -H "Origin: http://localhost:5173" -H "Content-Type: application/json" --request POST --data '{"email": "myemail", "password": "mypass"}' http://localhost:3000/api/auth/signin
+// //  > {"error":{"message":"Not allowed by CORS"}}%
 // app.use(
 //   cors({
 //     origin: ["http://localhost:4173"], // Allow frontend origin
@@ -27,23 +38,23 @@ const app = express();
 //     credentials: true, // If using cookies/authentication
 //   })
 // );
-// app.use(cors({ origin: "http://localhost:4173" })); // allow origin from front end
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    console.log("Checking CORS for Origin:", origin);
-    if (origin === ORIGIN) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true,
-};
+app.use(cors({ origin: ORIGIN })); // allow origin from front end
 
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     console.log("Checking CORS for Origin:", origin);
+//     if (origin === ORIGIN) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   methods: "GET,POST,PUT,DELETE,OPTIONS",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

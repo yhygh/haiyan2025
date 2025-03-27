@@ -66,8 +66,6 @@ const AuthForm = ({ signIn }) => {
       return;
     }
 
-    console.log(`XXX username = ${inputUsername}`);
-
     try {
       // Send login request to the backend
 
