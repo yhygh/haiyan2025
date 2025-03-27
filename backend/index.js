@@ -15,12 +15,38 @@ import errorHandler from "./handlers/error.js";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const ORIGIN = "http://localhost:4173";
 const app = express();
 
-app.use(express.json());
+// // TODP: figure out why the following does not work
+// app.use(
+//   cors({
+//     origin: ["http://localhost:4173"], // Allow frontend origin
+//     methods: "GET,POST,PUT,DELETE,OPTIONS", // Allowed methods
+//     allowedHeaders: "Content-Type, Authorization", // Allow custom headers
+//     credentials: true, // If using cookies/authentication
+//   })
+// );
+// app.use(cors({ origin: "http://localhost:4173" })); // allow origin from front end
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    console.log("Checking CORS for Origin:", origin);
+    if (origin === ORIGIN) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: "GET,POST,PUT,DELETE,OPTIONS",
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "http://localhost:4173" })); // allow origin from front end
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "../frontend/public")));
 app.use(mongoSanitize());
 app.use(helmet());
