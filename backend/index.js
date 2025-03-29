@@ -15,17 +15,18 @@ import errorHandler from "./handlers/error.js";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ORIGIN = "http://localhost:5173";
+const ORIGIN = ["https://haiyanyang.org", "http://localhost:5000"];
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("--- Incoming Request ---");
-  console.log(`Method: ${req.method}`);
-  console.log(`URL: ${req.url}`);
-  console.log("Headers:", req.headers);
-  // console.log('Body:', req.body);
-  next();
-});
+// // DEBUG code
+// app.use((req, res, next) => {
+//   console.log("--- Incoming Request ---");
+//   console.log(`Method: ${req.method}`);
+//   console.log(`URL: ${req.url}`);
+//   console.log("Headers:", req.headers);
+//   console.log('Body:', req.body);
+//   next();
+// });
 
 // // TODP: figure out why the following does not work in vite preview mode
 //  // > curl -H "Origin: http://localhost:5173" -H "Content-Type: application/json" --request POST --data '{"email": "myemail", "password": "mypass"}' http://localhost:3000/api/auth/signin
