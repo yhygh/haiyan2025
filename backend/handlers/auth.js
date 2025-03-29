@@ -3,6 +3,8 @@ import sanitizeHtml from "sanitize-html";
 
 import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
+import dotenv from 'dotenv';
+dotenv.config();
 
 // This is not okay in production. But I'm using it
 // for personal purpose, one less thing to remember
@@ -28,11 +30,6 @@ const signin = async function (req, res, next) {
     let user = await User.findOne({
       email: req.body.email,
     });
-
-    console.log(`process.env.ADMIN = ${process.env.ADMIN}`);
-    console.log(`signin user = ${JSON.stringify(user)}`);
-    console.log(`req.body = ${JSON.stringify(req.body)}`);
-    // console.log(req.body);
 
     let { id, username } = user;
 
@@ -78,7 +75,6 @@ const sanitizeInput = function (userInput) {
 };
 
 const signup = async function (req, res, next) {
-  console.log(`did I get here?`);
   try {
     sanitizeHtml(req.body.email);
     if (!validator.isEmail(req.body.email)) {
