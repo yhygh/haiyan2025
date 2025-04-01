@@ -27,8 +27,8 @@ const AIfun = () => {
 
         <p>
           {" "}
-          Honestly, I am learning how to work on this. I do not know if CNN is
-          the best algorithm for this task. I have to try and see. But I will
+          Honestly, I am learning AI too. I do not know if CNN is the best
+          algorithm for this task. I have to experiment and see. But I will
           continue to work on this whenever I can, simply because of sweet
           memories Huai opera brought to me, which was invaluable for a child.
         </p>
