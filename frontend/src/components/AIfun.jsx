@@ -29,7 +29,7 @@ const AIfun = () => {
           {" "}
           Honestly, I am learning AI too. I do not know if CNN is the best
           algorithm for this task. I have to experiment and see. But I will
-          continue to work on this whenever I can, simply because of sweet
+          continue to work on this whenever I can, simply because of the sweet
           memories Huai opera brought to me, which was invaluable for a child.
         </p>
 

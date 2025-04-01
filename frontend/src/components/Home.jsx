@@ -37,9 +37,9 @@ const Home = () => {
           </a>
           . This website is a place for me to play and demonstrate some of my
           full stack development skills. It is always{" "}
-          <strong>In Progress</strong>. Some of the choices I made are not be
-          ideal for production level code. I will gradually change and optimize
-          it. It has been a lot of fun to work on this website.
+          <strong>In Progress</strong>. Some of the choices I made are not ideal
+          for production level code. I will gradually change and optimize it. It
+          has been a lot of fun to work on this website.
         </p>
         <h4>About me</h4>
         <p>
