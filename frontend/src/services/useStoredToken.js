@@ -14,11 +14,13 @@ const useStoredToken = (key) => {
   const setToken = (newState) => {
     writeLocalStorage(key, newState);
     setTokenState(newState);
+    setTokenHeader(newState);
   };
 
   const removeToken = (key) => {
     deleteLocalStorage(key);
     setTokenState(null);
+    setTokenHeader(false);
   };
 
   return { tokenState, setToken, removeToken };

@@ -6,8 +6,6 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { tokenState, removeToken } = useStoredToken("jwtToken");
-  console.log(`========tokenState = ${JSON.stringify(tokenState)}`);
-  setTokenHeader(tokenState);
 
   const [user, setUser] = useState(null);
   // Check if user info exists in localStorage when the app loads
@@ -29,7 +27,6 @@ export const UserProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("username"); // Remove user from localStorage
     removeToken("jwtToken");
-    // setTokenHeader(false);
   };
 
   return (

@@ -11,7 +11,7 @@ const loginRequired = (req, res, next) => {
       } else {
         return next({
           status: 401,
-          message: "Please log in first", // better be generic here
+          message: "Please log in with correct user or password", // better be generic here
         });
       }
     });
