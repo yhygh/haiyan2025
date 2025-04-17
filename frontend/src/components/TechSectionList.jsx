@@ -20,6 +20,7 @@ const TechSectionList = () => {
   return (
     <>
       <h2>Tech Sections</h2>
+      <h3>All links in this page are retrieved from a backend database.</h3>
       {user && user.isAdmin && (
         <div className="add-tech-section">
           {!showTechForm && (

@@ -46,9 +46,9 @@ const Home = () => {
           I have been a full stack engineer since 2020. Prior to that, I had
           been a software testing engineer for a number of years. Since 2020, I
           have spent very possible minute I could spare to learn and sharpen my
-          skills. Numerous evenings and weekends rather than watching a movie or
-          having some other fun I was either taking a course or working on a
-          project. It has been a very rewarding journey.
+          web development skills. Numerous evenings and weekends rather than
+          watching a movie or having some other fun I was either taking a course
+          or working on a project. It has been a very rewarding journey.
         </p>
         <p>
           My learning journey includes more than a dozen Udemy courses, Youtube
