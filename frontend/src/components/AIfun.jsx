@@ -27,10 +27,11 @@ const AIfun = () => {
 
         <p>
           {" "}
-          Honestly, I am learning AI too. I do not know if CNN is the best
-          algorithm for this task. I have to experiment and see. But I will
-          continue to work on this whenever I can, simply because of the sweet
-          memories Huai opera brought to me, which was invaluable for a child.
+          Honestly, I am taking multiple AI courses right now. I have to
+          experiment anything I learned about CNN and test the result. But I
+          will continue to work on this whenever I can, simply because of the
+          sweet memories Huai opera brought to me, which was invaluable for a
+          child.
         </p>
 
         <h4>More to come ... </h4>
